@@ -74,7 +74,6 @@ La comparacion de estos estudios incluye distintos tipos de comportamientos. Alg
 
 ![](efecto1.jpg) 
 
-
 <br>
 <br>
 
@@ -243,6 +242,10 @@ legend(0, 0.63, legend=c(paste("Efecto fuerte=",efecto.3),
 
 ```
 
+
+![](power_1.png) 
+
+
 El analisis de poder indica que con 260 escuelas en tratamiento y 260 en control, considerando un promedio de 20 alumnos en el programa Jugando a Ser Artisas, la probabilidad de detectar el efecto de la intervencion es muy baja.
 
 El analisis comparativo de programs de escuela abierta muestra que este tipo de intervenciones tiene un efecto del $0.11$ desviaciones estandard.  Lo cual es un impacto modesto y dificil de detectar.
@@ -317,73 +320,3 @@ Dado que el escenario actual ofrece una oportunidad limitada para identificar el
 <br>
 <br>
 <br>
-
-
-
-<br>
-<br>
-
-
-## Analisis de Poder considerando dos brazos de tratamiento
-
-
-```{r, warning=FALSE, echo=FALSE,message=FALSE}
-# Load WebPower package
-library(WebPower)
-```
-
-
-Considerar el analisis con:
-
-* **Jugando a Ser Artistas Presencial**: implementacion en 260 centros escolares
-* **Jugando a Ser Artistas Virtual**: implementacion en 100 centros escolares
-* **Control**: en 260 centros escolares
-* **Parametros adicionales**:
-   * Numero de estudiantes por centro escolar: 20
-   * Efecto esperado: 0.11 
-
-
-```{r}
-pwr.4 <- wp.crt3arm(f = 0.11, n = 20, J = c(260,100,260),
-                       icc = 0.1, alpha = 0.05, power = NULL)
-pwr.4
-```
-
-
-
-Graficar resultado
-
-```{r, warning=FALSE, echo=FALSE, fig.height = 5, fig.width = 7, fig.align = "center"}
-# Graficar
-
-barplot(pwr.4$power, ylim=c(0,1), names.arg=c("Presencial", "Virtual", "Control"),
-         ylab="Pr(detectar efecto)")
-abline(h=0.8, col="red", lty=2)
-text(0.15, 0.685, paste("Escuelas presencial=",260,
-                    "\nEscuelas virtual=",100,
-                    "\nEscuelas control=",260,
-                  "\nPromedio estudiantes=",20), cex=0.8, pos = 4)
-
-```
-
-Asumiendo un efecto promedio de $0.11$ desviaciones estandar y considerando una intervencion de dos brazos, incluyendo intervencion presencial en 260 escuelas e intervencion virtual en 100 escuelas, el analisis de poder indica que hay:
-
-* $59\%$ de probabilidad de detectar el efecto del tratamiento presencial
-* $27.1\%$ de probabilidad de detectar el efecto del tratamiento virtual
-
-En este escenario, tambien va a ser dificil identificar el efecto de la intervencion.
-
-
-
-
-
-
-
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
