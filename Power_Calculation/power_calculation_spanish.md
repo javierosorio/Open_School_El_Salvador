@@ -243,7 +243,7 @@ legend(0, 0.63, legend=c(paste("Efecto fuerte=",efecto.3),
 ```
 
 
-![](power_1.png) 
+![](power_2.png) 
 
 
 
