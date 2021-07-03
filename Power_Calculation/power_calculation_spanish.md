@@ -6,7 +6,6 @@ output:
   html_document: default
   pdf_document: default
 ---
-
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 library(pwr)
@@ -74,6 +73,7 @@ La comparacion de estos estudios incluye distintos tipos de comportamientos. Alg
 
 ![](efecto1.jpg) 
 
+
 <br>
 <br>
 
@@ -115,16 +115,16 @@ icca<-0.20
 <br>
 
 
-## Declarar Parametros con 260 escuelas
+## Declarar Parametros con 221 escuelas
 
 Declarar numero de escuelas intervenidas y promedio de estudiantes por escuela:
 
 ```{r}
 # Escuelas en grupo control
-control <- 260
+control <- 221
 
 # Escuelas en grupo tratamiento
-tratamiento <- 260
+tratamiento <- 221
 
 # Total de escuelas
 esc.tot <-control+tratamiento
@@ -162,7 +162,7 @@ pwr.1 <-cpa.normal(power = NA,
                    vart = 5)
 summary(pwr.1)
 ```
-En un escenario de bajo impacto con 260 escuelas en tratamiento, la probabilidad de detectar el efecto  de la intervencion tendria un maximo de $18.2\%$.
+En un escenario de bajo impacto con 221 escuelas en tratamiento, la probabilidad de detectar el efecto  de la intervencion tendria un maximo de $16.6\%$.
 
 
 <br>
@@ -186,7 +186,7 @@ pwr.2 <-cpa.normal(power = NA,
 summary(pwr.2)
 ```
 
-En un escenario de impacto promedio con 260 escuelas en tratamiento, la probabilidad de detectar el efecto de la intervencion es de $43.1\%$.
+En un escenario de impacto promedio con 221 escuelas en tratamiento, la probabilidad de detectar el efecto de la intervencion es de $38.5\%$.
 
 
 <br>
@@ -210,11 +210,11 @@ summary(pwr.3)
 ```
 
 
-En un escenario de alto impacto con 260 escuelas en tratamiento, la probabilidad de detectar el efecto de la intervencion es de $71.3\%$.
+En un escenario de alto impacto con 221 escuelas en tratamiento, la probabilidad de detectar el efecto de la intervencion es de $65\%$.
 
 <br>
 
-### Comparar efectos con 260 escuelas en tratamiento
+### Comparar efectos con 221 escuelas en tratamiento
 
 
 Presentar los tres efectos en la misma grafica considerando 200 escuelas y 25 estudiantes promedio por escuela.
@@ -246,11 +246,12 @@ legend(0, 0.63, legend=c(paste("Efecto fuerte=",efecto.3),
 ![](power_1.png) 
 
 
-El analisis de poder indica que con 260 escuelas en tratamiento y 260 en control, considerando un promedio de 20 alumnos en el programa Jugando a Ser Artisas, la probabilidad de detectar el efecto de la intervencion es muy baja.
+
+El analisis de poder indica que con 221 escuelas en tratamiento y 221 en control, considerando un promedio de 20 alumnos en el programa Jugando a Ser Artisas, la probabilidad de detectar el efecto de la intervencion es muy baja.
 
 El analisis comparativo de programs de escuela abierta muestra que este tipo de intervenciones tiene un efecto del $0.11$ desviaciones estandard.  Lo cual es un impacto modesto y dificil de detectar.
 
-Si asumimos que el programa Jugando a Ser Artistas tiene un impacto promedio, la probabilidad de detectar el efecto de la intervencion es apenas del $36.7\%$. Lo cual esta muy por debajo de la probabilidad ideal de deteccion del $80\%$ (ver linea roja punteada).
+Si asumimos que el programa Jugando a Ser Artistas tiene un impacto promedio, la probabilidad de detectar el efecto de la intervencion es apenas del $38.5\%$. Lo cual esta muy por debajo de la probabilidad ideal de deteccion del $80\%$ (ver linea roja punteada).
 
 Bajo estas condiciones, va a ser dificil identificar el efecto de la intervencion.  
 
@@ -310,7 +311,6 @@ Dado que el escenario actual ofrece una oportunidad limitada para identificar el
       * Ausentismo.
       * Problemas de conducta.
       
-
 
 
 
